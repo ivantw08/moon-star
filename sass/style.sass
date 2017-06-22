@@ -1,0 +1,90 @@
+$color_space: #33425B
+
+@mixin size($w,$h)
+  width: $w
+  height: $h
+@mixin pos($l,$t)
+  left: $l
+  top: $t
+  
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+
+@mixin circle($r)
+  +size($r,$r)
+  border-radius: 50%  
+
+
+
+html,body
+  height: 100%
+  width: 100%
+  padding: 0
+  margin: 0
+  background-color: $color_space
+.hole
+  +circle(90px)
+  background-color: #ccc
+  box-shadow: 10px 10px darken(#ccc,10) inset
+  +ab_center
+  &:nth-child(1)
+    +circle(100px)
+    +pos(120px,130px)
+  &:nth-child(2)
+    +circle(50px)
+    +pos(170px,290px)
+  &:nth-child(3)
+    +circle(80px)
+    +pos(260px,260px)
+  &:nth-child(4)
+    +circle(40px)
+    +pos(280px,150px)
+  
+   
+.space
+  width: 700px
+  height: 700px
+  border-radius: 50%
+  background-color: lighten( $color_space,10)
+  filter : blur(50px)
+  position: absolute
+  left: 50%
+  right: 50%
+  transform: translate(-50%,0)
+  
+.moon
+  background-color: #fff
+  +circle(400px)
+  +ab_center
+  box-shadow: -40px -40px darken(#fff,10) inset,0px 0px 40px rgba(black,0.3)
+  
+.blue
+  background-color: #F98903
+  +circle(50px)
+  +ab_center
+  box-shadow: -10px -10px darken(#F98903,10) inset
+  
+.yellow
+  background-color: #C62727
+  +circle(70px)  
+  +ab_center
+  box-shadow: -10px -10px darken(#C62727,10) inset
+  
+.trace1
+  +circle(680px)
+  border: dashed 1px white
+  +ab_center
+  opacity: 0.6
+  
+.trace2
+  +circle(568px)
+  border: dashed 1px white
+  +ab_center
+  opacity: 0.6
+  
+  
+
+  
